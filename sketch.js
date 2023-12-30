@@ -6,6 +6,8 @@ let cloud;
 let man; 
 let bin;
 let bottle;
+let tiles;
+let marble;
 
 // setup() is called once at page-load
 function setup() {
@@ -17,6 +19,8 @@ function setup() {
     man = loadImage('https://i.imgur.com/zff2gmc.png');
     bin = loadImage('https://i.imgur.com/fGFcTZn.png');
     bottle = loadImage('https://i.imgur.com/rScR9ER.png');
+    tile = loadImage('https://i.imgur.com/jscRMV8.png');
+    marble = loadImage('https://i.imgur.com/aPqebbF.png');
     createCanvas(window.innerWidth,600); // make an HTML canvas element width x height pixels
 }
 
@@ -37,10 +41,22 @@ function draw() {
     noStroke()
 
     fill('#c0ebfc');
-    rect(0, 0, window.innerWidth, 250);
+    rect(0, 0, window.innerWidth, 350);
 
     fill('#faf0e6');
-    rect(0, 250, window.innerWidth, 350);
+    rect(0, 350, window.innerWidth, 335);
+
+    for (let i=0;i<5;i++){
+        for (let j=0;j<20;j++){
+            image(marble, 100*j, 350+100*i, 100, 100);
+        }
+    }
+
+    // for (let i=2;i<5;i++){
+    //     for (let j=0;j<20;j++){
+    //         image(tile, 100*j, 275+100*i, 100, 100);
+    //     }
+    // }
 
     image(columbia, window.innerWidth/2-450/2, 50, 450, 450);
 
@@ -54,6 +70,6 @@ function draw() {
     image(sun, window.innerWidth-200, 5, 150, 150);
 
     image(bin, 10, 340, 80, 80);
-    
+
     image(bottle, sec < 30 ? (30 + 130 * (sec/30)) : 160 - (30-(60-sec))/30 * 130, 322.5 - (Math.abs(15-(Math.abs(15-(sec%30))))*2), 30, 30);
 }
