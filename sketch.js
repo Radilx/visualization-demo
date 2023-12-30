@@ -9,6 +9,8 @@ let bottle;
 let tiles;
 let marble;
 
+const WINDOW_WIDTH = window.innerWidth;
+
 // setup() is called once at page-load
 function setup() {
     columbia = loadImage('https://i.imgur.com/9RHo2gE.png');
@@ -21,7 +23,7 @@ function setup() {
     bottle = loadImage('https://i.imgur.com/rScR9ER.png');
     tile = loadImage('https://i.imgur.com/jscRMV8.png');
     marble = loadImage('https://i.imgur.com/aPqebbF.png');
-    createCanvas(window.innerWidth,600, WEBGL); // make an HTML canvas element width x height pixel
+    createCanvas(WINDOW_WIDTH,600, WEBGL); // make an HTML canvas element width x height pixel
 }
 
 let prevMin; 
@@ -42,23 +44,23 @@ function draw() {
     background(255);
     noStroke()
 
-    translate(-window.innerWidth/2, -300, 0);
+    translate(-WINDOW_WIDTH/2, -300, 0);
 
     fill('#c0ebfc');
-    rect(0, 0, window.innerWidth, 350);
+    rect(0, 0, WINDOW_WIDTH, 350);
 
 
-    translate(-500 * (window.innerWidth/932), 0, -500 * (window.innerWidth/932));
-    rotateX(0.25 * (window.innerWidth/932) );
-    for (let i=0;i<5;i++){
-        for (let j=-3;j<25 * (window.innerWidth/932) ;j++){
+    translate(-500 * (WINDOW_WIDTH/932), 0, -500 * (WINDOW_WIDTH/932));
+    rotateX(0.25 * (WINDOW_WIDTH/932) );
+    for (let i=0;i<(5*WINDOW_WIDTH/932 < 5 ? 5 : 5*WINDOW_WIDTH/932);i++){
+        for (let j=-3;j<25 * (WINDOW_WIDTH/932) ;j++){
             image(marble, 100*j, 350+100*i, 100, 100);
         }
     }
 
-    rotateX(-0.25 * (window.innerWidth/932));
+    rotateX(-0.25 * (WINDOW_WIDTH/932));
 
-    translate(500 * (window.innerWidth/932), 0, 500 * (window.innerWidth/932));
+    translate(500 * (WINDOW_WIDTH/932), 0, 500 * (WINDOW_WIDTH/932));
 
     // for (let i=2;i<5;i++){
     //     for (let j=0;j<20;j++){
@@ -67,16 +69,16 @@ function draw() {
     // }
 
 
-    image(columbia, window.innerWidth/2-450/2, 50, 450, 450);
+    image(columbia, WINDOW_WIDTH/2-450/2, 50, 450, 450);
 
     image(man, 150, 320, 100, 100);
-    image(student, 65 + ((window.innerWidth - 350) * min/60), 400, 120, 120);
+    image(student, 65 + ((WINDOW_WIDTH - 350) * min/60), 400, 120, 120);
     
     image(fountain, 50, 400, 175, 175);
-    image(fountain, window.innerWidth-235, 400, 175, 175);
+    image(fountain, WINDOW_WIDTH-235, 400, 175, 175);
 
-    image(cloud, 200 + window.innerWidth * 0.1 + (window.innerWidth * 0.8*(hr/24)) - 300, 0, 200, 200)
-    image(sun, window.innerWidth-200, 5, 150, 150);
+    image(cloud, 200 + WINDOW_WIDTH * 0.1 + (WINDOW_WIDTH * 0.8*(hr/24)) - 300, 0, 200, 200)
+    image(sun, WINDOW_WIDTH-200, 5, 150, 150);
 
     image(bin, 10, 340, 80, 80);
 
