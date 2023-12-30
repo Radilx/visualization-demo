@@ -42,10 +42,11 @@ function draw() {
     image(fountain, 50, 400, 175, 175);
     image(fountain, window.innerWidth-235, 400, 175, 175);
 
-    image(cloud, window.innerWidth * 0.1 + (window.innerWidth * 0.9*(hr/24)) - 250, 0, 200, 200)
+    image(cloud, 200 + window.innerWidth * 0.1 + (window.innerWidth * 0.8*(hr/24)) - 300, 0, 200, 200)
     image(sun, window.innerWidth-200, 5, 150, 150);
 
     image(man, 150, 320, 100, 100);
     image(bin, 10, 340, 80, 80);
-    image(bottle, 30 + 130 * (sec/60), 322.5 - ((30-Math.abs(30-sec))/30)*20, 30, 30);
+
+    image(bottle, sec < 30 ? (30 + 130 * (sec/60)) : 160 - (30-(60-sec))/30 * 130, 322.5 - ((30-Math.abs(30-sec))/30)*40, 30, 30);
 }
