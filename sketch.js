@@ -26,6 +26,10 @@ function draw() {
     let min = minute();
     let sec = second();
 
+    if (sec === 0){
+        console.log(min);
+    }
+
     background(255);
     noStroke()
 
