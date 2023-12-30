@@ -1,0 +1,51 @@
+let columbia;
+let fountain;
+let sun;  
+let student;
+let cloud; 
+let man; 
+let bin;
+let bottle;
+
+// setup() is called once at page-load
+function setup() {
+    columbia = loadImage('https://i.imgur.com/9RHo2gE.png');
+    fountain = loadImage('https://i.imgur.com/oSbsiGc.png');
+    sun = loadImage('https://i.imgur.com/Yrtd0eT.png');
+    student = loadImage('https://i.imgur.com/9218pvQ.png');
+    cloud = loadImage('https://i.imgur.com/BAy9tc2.png');
+    man = loadImage('https://i.imgur.com/zff2gmc.png');
+    bin = loadImage('https://i.imgur.com/fGFcTZn.png');
+    bottle = loadImage('https://i.imgur.com/rScR9ER.png');
+    createCanvas(window.innerWidth,600); // make an HTML canvas element width x height pixels
+}
+
+// draw() is called 60 times per second
+function draw() {
+    let hr = hour();
+    let min = minute();
+    let sec = second();
+
+    background(255);
+    noStroke()
+
+    fill('#c0ebfc');
+    rect(0, 0, window.innerWidth, 250);
+
+    fill('#faf0e6');
+    rect(0, 250, window.innerWidth, 350);
+
+    image(columbia, window.innerWidth/2-450/2, 50, 450, 450);
+
+    image(student, 65 + ((window.innerWidth - 350) * min/60), 400, 120, 120);
+    
+    image(fountain, 50, 400, 175, 175);
+    image(fountain, window.innerWidth-235, 400, 175, 175);
+
+    image(cloud, window.innerWidth * 0.1 + (window.innerWidth * 0.9*(hr/24)) - 250, 0, 200, 200)
+    image(sun, window.innerWidth-200, 5, 150, 150);
+
+    image(man, 150, 320, 100, 100);
+    image(bin, 10, 340, 80, 80);
+    image(bottle, 30 + 130 * (sec/60), 322.5 - ((30-Math.abs(30-sec))/30)*20, 30, 30);
+}
