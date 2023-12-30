@@ -21,7 +21,7 @@ function setup() {
     bottle = loadImage('https://i.imgur.com/rScR9ER.png');
     tile = loadImage('https://i.imgur.com/jscRMV8.png');
     marble = loadImage('https://i.imgur.com/aPqebbF.png');
-    createCanvas(window.innerWidth,600); // make an HTML canvas element width x height pixels
+    createCanvas(window.innerWidth,600, WEBGL); // make an HTML canvas element width x height pixel
 }
 
 let prevMin; 
@@ -35,28 +35,37 @@ function draw() {
     if (prevMin === null || min != prevMin){
         console.log(min);
         prevMin = min;
+
     }
+
 
     background(255);
     noStroke()
 
+    translate(-window.innerWidth/2, -300, 0);
+
     fill('#c0ebfc');
     rect(0, 0, window.innerWidth, 350);
 
-    fill('#faf0e6');
-    rect(0, 350, window.innerWidth, 335);
 
+    translate(-500 * (window.innerWidth/932), 0, -500 * (window.innerWidth/932));
+    rotateX(0.25 * (window.innerWidth/932) );
     for (let i=0;i<5;i++){
-        for (let j=0;j<20;j++){
+        for (let j=-3;j<25 * (window.innerWidth/932) ;j++){
             image(marble, 100*j, 350+100*i, 100, 100);
         }
     }
+
+    rotateX(-0.25 * (window.innerWidth/932));
+
+    translate(500 * (window.innerWidth/932), 0, 500 * (window.innerWidth/932));
 
     // for (let i=2;i<5;i++){
     //     for (let j=0;j<20;j++){
     //         image(tile, 100*j, 275+100*i, 100, 100);
     //     }
     // }
+
 
     image(columbia, window.innerWidth/2-450/2, 50, 450, 450);
 
