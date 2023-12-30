@@ -37,6 +37,7 @@ function draw() {
 
     image(columbia, window.innerWidth/2-450/2, 50, 450, 450);
 
+    image(man, 150, 320, 100, 100);
     image(student, 65 + ((window.innerWidth - 350) * min/60), 400, 120, 120);
     
     image(fountain, 50, 400, 175, 175);
@@ -45,8 +46,7 @@ function draw() {
     image(cloud, 200 + window.innerWidth * 0.1 + (window.innerWidth * 0.8*(hr/24)) - 300, 0, 200, 200)
     image(sun, window.innerWidth-200, 5, 150, 150);
 
-    image(man, 150, 320, 100, 100);
     image(bin, 10, 340, 80, 80);
     
-    image(bottle, sec < 30 ? (30 + 130 * (sec/60)) : 160 - (30-(60-sec))/30 * 130, 322.5 - ((30-Math.abs(30-sec%30))/30)*40, 30, 30);
+    image(bottle, sec < 30 ? (30 + 130 * (sec/30)) : 160 - (30-(60-sec))/30 * 130, 322.5 - (Math.abs(15-(Math.abs(15-(sec%30))))*2), 30, 30);
 }
